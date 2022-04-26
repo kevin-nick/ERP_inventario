@@ -1,0 +1,76 @@
+<div class="sidebar close col-md-12" [ngClass]="{'close': isExpanded}">
+    <div class="logo-details">
+        <i class='bx bxl-c-plus-plus'></i>
+        <span class="logo_name">CTSInventario</span>
+    </div>
+    <ul class="nav-links">
+        <li>
+            <a routerLink="/home">
+                <i class='bx bx-home'></i>
+                <span class="link_name">Home</span>
+            </a>
+        </li>
+        <li [ngClass]="{'showMenu': isdropdown}">
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-collection'></i>
+                    <span class="link_name">Inventario</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' (click)="isdropdown = !isdropdown"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a href="/dashboard/inventario">Altas y Bajas </a></li>
+                <li><a href="/dashboard/inventario">Almacen</a></li>
+                <li><a [routerLink]="['/dashboard/inventario']">Asignados</a></li>
+            </ul>
+        </li>
+        <li [ngClass]="{'showMenu': isUsuarios}">
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-group'></i>
+                    <span class="link_name">Usuarios</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' (click)="isUsuarios = !isUsuarios"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a href="/dashboard/empleado">Empleados</a></li>
+                <li><a href="#">Usuarios</a></li>
+            </ul>
+        </li>
+        <li [ngClass]="{'showMenu': isProbedores}">
+            <div class="iocn-link">
+                <a href="#">
+                    <i class='bx bx-store'></i>
+                    <span class="link_name">Provedores</span>
+                </a>
+                <i class='bx bxs-chevron-down arrow' (click)="isProbedores = !isProbedores"></i>
+            </div>
+            <ul class="sub-menu">
+                <li><a href="#">Web Design</a></li>
+                <li><a href="#">Login Form</a></li>
+                <li><a href="#">Card Design</a></li>
+            </ul>
+        </li>
+        <li>
+            <a routerLink="/dashboard">
+                <i class='bx bx-cog'></i>
+                <span class="link_name">Setting</span>
+            </a>
+            <ul class="sub-menu blank">
+                <li><a class="link_name" href="#">Setting</a></li>
+            </ul>
+        </li>
+        <!-- <li>
+            <div class="profile-details">
+                <div class="profile-content">
+                    <img src="https://place.dog/300/200" alt="profileImg">
+                </div>
+                <div class="name-job">
+                    <div class="profile_name">Kevin Nick</div>
+                    <div class="job">Web Desginer</div>
+                </div>
+                <i class='bx bx-log-out'></i>
+            </div>
+        </li> -->
+    </ul>
+</div>

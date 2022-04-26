@@ -1,0 +1,24 @@
+<mat-nav-list>
+  <div class="logo py-4">
+    <img src="./assets/logo.svg" alt="Centro de Tecnologias" />
+  </div>
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mt-2">INVENTARIOS</h2>
+
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/home">
+    <mat-icon>home</mat-icon> Home
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard" >
+    <mat-icon>inventory</mat-icon> Inventario
+    <button mat-button [matMenuTriggerFor]="menu"> <mat-icon class="arrow-donw">keyboard_arrow_down</mat-icon></button>
+  </a>
+
+  <mat-menu #menu = "matMenu">
+    <a mat-list-item> <mat-icon>manage_accounts</mat-icon> Usuarios </a>
+    <a mat-list-item> <mat-icon>storefront</mat-icon> Provedores </a>
+    <a mat-list-item> <mat-icon>settings</mat-icon> Setting </a>
+  </mat-menu>
+  <a mat-list-item> <mat-icon>manage_accounts</mat-icon> Usuarios </a>
+  <a mat-list-item> <mat-icon>storefront</mat-icon> Provedores </a>
+  <a mat-list-item> <mat-icon>settings</mat-icon> Setting </a>
+</mat-nav-list>
