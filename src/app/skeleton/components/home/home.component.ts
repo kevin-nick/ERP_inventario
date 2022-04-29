@@ -1,11 +1,19 @@
-import { Component, HostListener } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnDestroy, OnInit,  HostListener } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-home',
+  templateUrl: './home.component.html',
+  styleUrls: ['./home.component.scss']
 })
-export class AppComponent {
+export class HomeComponent implements OnInit, OnDestroy {
+
+  ngOnInit(): void {
+  }
+  ngOnDestroy(): void {
+  }
+
   title = 'admin-panel-layout';
   sideBarOpen = true;
   width: number = 0;
@@ -21,5 +29,4 @@ export class AppComponent {
   sideBarToggler() {
     this.sideBarOpen = !this.sideBarOpen;
   }
-
 }

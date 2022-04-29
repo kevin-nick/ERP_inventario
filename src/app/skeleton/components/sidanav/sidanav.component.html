@@ -1,4 +1,4 @@
-<div class="sidebar close col-md-12" [ngClass]="{'close': isExpanded}">
+<div class="sidebar close col-md-12" [[ngClass]="{'close': isExpanded}">
     <div class="logo-details">
         <i class='bx bxl-c-plus-plus'></i>
         <span class="logo_name">CTSInventario</span>
@@ -20,7 +20,7 @@
             </div>
             <ul class="sub-menu">
                 <li><a href="/dashboard/inventario">Altas y Bajas </a></li>
-                <li><a href="/dashboard/inventario">Almacen</a></li>
+                <li><a [routerLink]="['/dashboard/inventario']">Almacen</a></li>
                 <li><a [routerLink]="['/dashboard/inventario']">Asignados</a></li>
             </ul>
         </li>
@@ -35,19 +35,20 @@
             <ul class="sub-menu">
                 <li><a href="/dashboard/empleado">Empleados</a></li>
                 <li><a href="#">Usuarios</a></li>
+                <li><a href="/dashboard/empleado">Permisos</a></li>
             </ul>
         </li>
         <li [ngClass]="{'showMenu': isProbedores}">
             <div class="iocn-link">
                 <a href="#">
                     <i class='bx bx-store'></i>
-                    <span class="link_name">Provedores</span>
+                    <span class="link_name">Sedes</span>
                 </a>
                 <i class='bx bxs-chevron-down arrow' (click)="isProbedores = !isProbedores"></i>
             </div>
             <ul class="sub-menu">
-                <li><a href="#">Web Design</a></li>
-                <li><a href="#">Login Form</a></li>
+                <li><a href="#">Sedes</a></li>
+                <li><a href="#">Departamentos</a></li>
                 <li><a href="#">Card Design</a></li>
             </ul>
         </li>

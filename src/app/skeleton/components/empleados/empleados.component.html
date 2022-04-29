@@ -1,0 +1,187 @@
+<ng-template #create_edit>
+    <!-- template de formulario para crear y editar-->
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title">{{nameTitle}}</h4>
+        <!-- <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="close()"></button>
+    </div>
+    <div class="modal-bodys">
+        <div class="container-fluid">
+            <form class="row g-2 mt-3 mb-2">
+                <div class="row">
+                    <div class="col-md">
+                        <label for="validation" class="form-label">Nombre:</label>
+                        <input type="text" class="form-control is-valid" id="validation" value="Mark" required>
+                        <div class="valid-feedback">
+                            ¡ Correcto !
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <label for="validation" class="form-label">Apellido:</label>
+                        <input type="text" class="form-control is-valid" id="validation" value="Otto" required>
+                        <div class="valid-feedback">
+                            ¡ Correcto !
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md">
+                        <label for="validationServerUsername" class="form-label">Email:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                            <input type="email" class="form-control is-invalid" id="validationServerUsername" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                            <div id="validation" class="invalid-feedback">
+                                ¡ Incorrecto !
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md">
+                        <label for="validationServerUsername" class="form-label">Telefono:</label>
+                        <div class="input-group has-validation">
+                            <span class="input-group-text" id="inputGroupPrepend3"><i class='bx bx-phone'></i></span>
+                            <input type="tel" class="form-control is-invalid" id="validation" aria-describedby="inputGroupPrepend3 validationServerUsernameFeedback" required>
+                            <div id="validation" class="invalid-feedback">
+                                ¡ Incorrecto !
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona una sede</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Selecciona un departamento</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row mt-5">
+                    <div class="container col-md-6">
+                        <img id="frame" class="img-fluid" [src]="previsualizacion" />
+                        <div class="mb-5">
+                            <!-- <label for="Image" class="form-label">Bootstrap 5 image Upload with Preview</label> -->
+                            <input class="form-control" type="file" id="formFile" (change)="capturarFile($event)">
+                            <!-- <button onclick="clearImage()" class="btn btn-primary mt-3">Click me</button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="row ml-5">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Activo</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-bs-dismis="modal">Cancelar</button>
+        <button type="submit" class="btn btn-primary" data-bs-dismis="modal">Guardar</button>
+    </div>
+</ng-template>
+
+<div class="container-fluid page">
+    <div class="d-flex page__box p-3">Home</div>
+    <div class="page__content shadow position-relative">
+        <div [ngClass]="panelOpenState ? 'page__content-data' : 'expanpage'">
+            <!--class="page__content-data"-->
+            <div class="row text-end header-body">
+                <p class="col text-start">Opciones</p>
+                <div class="col options m-3">
+                    <!--"acc.toggle('toggle-1')"-->
+                    <button class="btn btn-light" (click)="togglePanel()"><i class='bx bx-filter-alt'></i >Filtros</button>
+
+                    <!-- <div class="btn-group">
+                        <button class="btn btn-light dropdown-toggle"><i class='bx bx-cog'></i>Acciones</button> -->
+                    <!-- <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown">Sony</button> -->
+                    <!-- <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Tablet</a></li>
+                            <li><a class="dropdown-item" href="#">Smartphone</a></li>
+                        </ul>
+                    </div> -->
+
+                    <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                           <i class='bx bx-cog' ></i>Acciones
+                        </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Action</a></li>
+                        <li><a class="dropdown-item" href="#">Another action</a></li>
+                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <mat-expansion-panel hideToggle [expanded]="panelOpenState" class="space">
+                <div class="row mt-3">
+                    <div class="col-md">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                    <div class="col-md">
+                        <select class="form-select" aria-label="Default select example">
+                            <option selected>Open this select menu</option>
+                            <option value="1">One</option>
+                            <option value="2">Two</option>
+                            <option value="3">Three</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row  mt-2">
+                    <div class="col-md-3 ">
+                        <button type="submit" class="btn btn-primary mt-2" data-bs-dismis="modal">Guardar</button>
+                    </div>
+                </div>
+            </mat-expansion-panel>
+
+            <div class="row space">
+                <table datatable [dtOptions]="dtOptions" class="row-border hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Salary</th>
+                            <th>Age</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let post of datos; let i=index">
+                            <th>{{post.id}}</th>
+                            <th>{{post.employee_name}}</th>
+                            <th>{{post.employee_salary}}</th>
+                            <th>{{post.employee_age}}</th>
+                            <th>
+                                <div class="btn-tb">
+                                    <button class="btn btn-danger"> <i class='bx bx-trash'></i></button>
+                                    <button class="btn btn-warning" (click)="open(create_edit)"> <i class='bx bx-edit'></i></button>
+                                </div>
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

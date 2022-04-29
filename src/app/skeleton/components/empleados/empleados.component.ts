@@ -19,6 +19,7 @@ export class EmpleadosComponent implements OnInit {
       dtOptions: DataTables.Settings = {};
       dtTrigger: Subject<any> = new Subject<any>();
       data: any;
+      panelOpenState: boolean = false;
       checked = false;
       disabled = false;
       previsualizacion: string;
@@ -97,6 +98,9 @@ export class EmpleadosComponent implements OnInit {
       ) { }
 
       form: FormGroup;
+      togglePanel(): any {
+        this.panelOpenState = !this.panelOpenState;
+      }
       ngOnInit(): void {
 
             this.form = this.formBuielder.group({
@@ -106,7 +110,9 @@ export class EmpleadosComponent implements OnInit {
             this.dtOptions = {
               pagingType: 'full_numbers',
               autoWidth: true,
-              pageLength: 5,
+              pageLength: 6,
+              scrollY: "250px",
+              scrollCollapse: true,
               lengthMenu : [5, 10, 25],
               processing: true,
               responsive: true,
